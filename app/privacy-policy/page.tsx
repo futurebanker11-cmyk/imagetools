@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 const LAST_UPDATED = "April 28, 2026";
 const ADSENSE_PUB = "ca-pub-XXXXXXXXXXXXXXXX"; // Replace with actual AdSense pub-id before launch
-const CONTACT_EMAIL = "[OWNER EMAIL]"; // Replace before launch
+const CONTACT_EMAIL = "support@gkquestionsguru.com";
 
 export default function PrivacyPolicyPage() {
   return (

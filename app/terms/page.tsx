@@ -7,8 +7,8 @@ export const metadata: Metadata = {
 };
 
 const LAST_UPDATED = "April 28, 2026";
-const GOVERNING_LAW = "[YOUR STATE/COUNTRY]"; // Replace before launch
-const CONTACT_EMAIL = "[OWNER EMAIL]"; // Replace before launch
+const GOVERNING_LAW = "India";
+const CONTACT_EMAIL = "support@gkquestionsguru.com";
 
 export default function TermsPage() {
   return (

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Mail, Clock } from "lucide-react";
 
-const CONTACT_EMAIL = "[OWNER EMAIL]"; // Replace before launch
+const CONTACT_EMAIL = "support@gkquestionsguru.com";
 
 export default function ContactPage() {
   const [subject, setSubject] = useState("");

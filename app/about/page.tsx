@@ -49,7 +49,7 @@ export default function AboutPage() {
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8">Who runs this</h2>
         <p>
-          ImageTools is run by <strong>[OWNER NAME]</strong>. If you have a question, found a bug, or want to suggest a tool, reach out at <a href="mailto:[OWNER EMAIL]" className="text-blue-600 hover:underline">[OWNER EMAIL]</a>.
+          ImageTools is actively being developed and improved. We are a team focused on building practical, privacy-first tools for everyday image tasks. If you have a question, found a bug, or want to suggest a tool, reach out at <a href="mailto:support@gkquestionsguru.com" className="text-blue-600 hover:underline">support@gkquestionsguru.com</a>.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-10">
