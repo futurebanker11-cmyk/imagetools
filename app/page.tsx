@@ -1,103 +1,108 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import ToolCard from "@/components/ToolCard";
+import {
+  Maximize2, Crop, FileDown, RotateCw,
+  CreditCard, GraduationCap, Briefcase, Globe, FileText, Droplets,
+  ArrowRightLeft, Film
+} from "lucide-react";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Free Online Image Tools — Resize, Compress, Convert in Browser",
+  description:
+    "15 free image tools that work entirely in your browser. Resize, compress, crop, rotate, convert images. No upload, no account, 100% private.",
+};
+
+const SECTIONS = [
+  {
+    heading: "Resize & Edit",
+    tools: [
+      { icon: Maximize2, title: "Image Resizer", description: "Resize to exact pixels, cm, or inch with presets", href: "/image-resizer" },
+      { icon: Crop, title: "Image Cropper", description: "Crop freely or to fixed aspect ratios", href: "/image-cropper" },
+      { icon: RotateCw, title: "Rotate Image", description: "Rotate, flip, and angle-correct images", href: "/rotate-image" },
+      { icon: Droplets, title: "Add Watermark", description: "Add text or logo watermark to images", href: "/add-watermark" },
+    ],
+  },
+  {
+    heading: "Compress",
+    tools: [
+      { icon: FileDown, title: "Compress Image", description: "Reduce image file size with quality control", href: "/compress-image" },
+      { icon: FileDown, title: "Compress to 50KB", description: "Auto-compress any image to under 50KB", href: "/compress-image-to-50kb" },
+      { icon: FileDown, title: "Compress to 100KB", description: "Auto-compress any image to under 100KB", href: "/compress-image-to-100kb" },
+    ],
+  },
+  {
+    heading: "Convert",
+    tools: [
+      { icon: ArrowRightLeft, title: "PNG to JPG", description: "Convert PNG files to JPG with batch support", href: "/png-to-jpg" },
+      { icon: ArrowRightLeft, title: "JPG to PNG", description: "Convert JPG to transparent-capable PNG", href: "/jpg-to-png" },
+      { icon: Film, title: "HEIC to JPG", description: "Convert iPhone HEIC photos to JPG", href: "/heic-to-jpg" },
+      { icon: FileText, title: "Image to PDF", description: "Combine multiple images into a single PDF", href: "/image-to-pdf" },
+    ],
+  },
+  {
+    heading: "Documents & Forms",
+    tools: [
+      { icon: CreditCard, title: "PAN Card Photo", description: "Resize photo to PAN card specifications", href: "/pan-card-photo-resizer" },
+      { icon: GraduationCap, title: "UPSC Photo", description: "Resize photo to UPSC exam requirements", href: "/upsc-photo-resizer" },
+      { icon: Briefcase, title: "SSC Photo", description: "Resize photo to SSC exam specifications", href: "/ssc-photo-resizer" },
+      { icon: Globe, title: "Passport Photo", description: "Create passport photos for India, US, UK, Schengen", href: "/passport-photo-maker" },
+    ],
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      {/* Hero */}
+      <div className="text-center mb-14">
+        <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+          Free Online Image Tools
+        </h1>
+        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          Resize, compress, crop, and convert images entirely in your browser.
+          Your files never leave your device — complete privacy guaranteed.
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-6 mt-6 text-sm text-gray-500">
+          <span className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-green-500 inline-block" aria-hidden="true" />
+            No upload required
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-green-500 inline-block" aria-hidden="true" />
+            100% free
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-green-500 inline-block" aria-hidden="true" />
+            No account needed
+          </span>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+
+      {/* Tool Sections */}
+      {SECTIONS.map((section) => {
+        const sectionId = `section-${section.heading.replace(/\s+/g, "-").toLowerCase()}`;
+        return (
+          <section key={section.heading} className="mb-12" aria-labelledby={sectionId}>
+            <h2
+              id={sectionId}
+              className="text-2xl font-semibold text-gray-800 mb-5 pb-2 border-b border-gray-100"
+            >
+              {section.heading}
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              {section.tools.map((tool) => (
+                <ToolCard
+                  key={tool.href}
+                  icon={tool.icon}
+                  title={tool.title}
+                  description={tool.description}
+                  href={tool.href}
+                />
+              ))}
+            </div>
+          </section>
+        );
+      })}
     </div>
   );
 }
